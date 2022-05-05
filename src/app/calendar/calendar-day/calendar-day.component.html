@@ -3,6 +3,7 @@
   <mat-card-subtitle>{{HaveGame}}</mat-card-subtitle>
   <mat-card-content>
     <p>{{TimeAndCourt}}</p>
+    <p>{{Game.GameDate.toString() | date: 'longDate'}}</p>
     <p>{{Notes}}</p>
   </mat-card-content>
   <!--

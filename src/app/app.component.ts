@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GameDay, GameTypeEnum } from './calendar/calendar-day/calendar-day.component';
 
 @Component({
   selector: 'app-root',

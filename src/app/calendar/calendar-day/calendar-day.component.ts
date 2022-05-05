@@ -10,11 +10,13 @@ export class CalendarDayComponent implements OnInit {
   @Input() Game: GameDay = new GameDay();
 
   get TimeAndCourt(): string {
-    return `${this.Game.GameTime} on ${this.Game.GameCourt}`
+    return `${this.Game.GameTime} pm on Court ${this.Game.GameCourt}`
   }
 
-  get HaveGame(): boolean {
-    return this.Game.GameType !== GameTypeEnum.None
+  get HaveGame(): string {
+    return this.Game.GameType === GameTypeEnum.None
+      ? 'No Game'
+      : 'Game';
   }
 
   get Day(): string {
