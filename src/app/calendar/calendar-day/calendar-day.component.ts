@@ -26,11 +26,11 @@ export class CalendarDayComponent implements OnInit {
   }
 
   get gamePlayed(): boolean {
-    return false;
+    return true;
   }
 
   get gameWon(): boolean {
-    return false;
+    return true;
   }
 
   constructor() { }
