@@ -1,10 +1,17 @@
 <mat-card>
-  <mat-card-title>{{Day}}</mat-card-title>
+  <mat-card-title>
+    {{Day}}
+    <mat-icon style="float: right;" *ngIf="!gamePlayed" aria-hidden="false" aria-label="Win icon">radio_button_unchecked</mat-icon>
+    <mat-icon style="float: right;" *ngIf="!gameWon && gamePlayed" style="color: red" aria-hidden="false" aria-label="Win icon">cancel</mat-icon>
+    <mat-icon style="float: right;" *ngIf="gameWon && gamePlayed" style="color: green;" aria-hidden="false" aria-label="Win icon">add_circle</mat-icon>
+  </mat-card-title>
   <mat-card-subtitle>{{HaveGame}}</mat-card-subtitle>
   <mat-card-content>
     <p>{{TimeAndCourt}}</p>
     <p>{{Game.GameDate.toString() | date: 'longDate'}}</p>
-    <p>{{Notes}}</p>
+    <div>
+        <p>{{Notes}}</p>
+    </div>
   </mat-card-content>
   <!--
   <mat-card-actions>

@@ -6,11 +6,11 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./calendar-day.component.scss']
 })
 export class CalendarDayComponent implements OnInit {
-  @Input() Notes = "";
+  @Input() Notes = "This is a test note";
   @Input() Game: GameDay = new GameDay();
 
   get TimeAndCourt(): string {
-    return `${this.Game.GameTime} pm on Court ${this.Game.GameCourt}`
+    return `${this.Game.FormattedTime} on Court ${this.Game.GameCourt}`
   }
 
   get HaveGame(): string {
@@ -23,6 +23,14 @@ export class CalendarDayComponent implements OnInit {
     return this.Game.GameDate.toLocaleString(
       'default', {weekday: 'long'}
       );
+  }
+
+  get gamePlayed(): boolean {
+    return false;
+  }
+
+  get gameWon(): boolean {
+    return false;
   }
 
   constructor() { }
@@ -39,9 +47,53 @@ export enum GameTypeEnum {
   Exibition
 }
 
+export enum GameStatusEnum {
+  Upcoming,
+  Won,
+  Lost,
+  Cancelled,
+  NA,
+}
+
 export class GameDay {
   GameType = GameTypeEnum.None;
+  GameStatus = GameStatusEnum.NA;
   GameDate = new Date();
-  GameTime = "7:30";
   GameCourt = 1;
+
+  get Played(): boolean {
+    return this.GameDate < new Date()
+  }
+
+  get FormattedTime(): string {
+    return this.getFormattedTime(this.GameDate)
+  }
+
+  private getFormattedTime(date: Date): string {
+    const minutes = this.formatMinutes(date.getMinutes());
+    const hours = this.formatHours(date.getHours());
+    const amPm = date.getHours() > 12
+      ? 'pm'
+      : 'am';
+
+    return `${hours}:${minutes} ${amPm}`
+  }
+
+  private formatMinutes(minutes: number): string {
+    return minutes > 0
+      ? minutes.toString()
+      : '0' + minutes.toString();
+  }
+
+  private formatHours(hours: number): string {
+    if (hours < 1) {
+      return '12'
+    }
+
+    if (hours > 12) {
+      return (hours - 12).toString();
+    }
+
+    return hours.toString();
+  }
 }

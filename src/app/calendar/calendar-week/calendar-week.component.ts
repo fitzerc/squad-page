@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GameDay, GameTypeEnum } from '../calendar-day/calendar-day.component';
+import { GameDay, GameStatusEnum, GameTypeEnum } from '../calendar-day/calendar-day.component';
 
 @Component({
   selector: 'app-calendar-week',
@@ -7,13 +7,15 @@ import { GameDay, GameTypeEnum } from '../calendar-day/calendar-day.component';
   styleUrls: ['./calendar-week.component.scss']
 })
 export class CalendarWeekComponent implements OnInit {
-  game: GameDay={
-    GameCourt: 5,
-    GameDate: new Date('1/1/2022'),
-    GameTime: '8:00',
-    GameType: GameTypeEnum.None
-  };
-  constructor() { }
+
+  game = new GameDay();
+
+  constructor() {
+    this.game.GameCourt = 5;
+    this.game.GameDate = new Date('1/1/2022');
+    this.game.GameType = GameTypeEnum.None;
+    this.game.GameStatus = GameStatusEnum.Upcoming;
+  }
 
   ngOnInit(): void {
   }
