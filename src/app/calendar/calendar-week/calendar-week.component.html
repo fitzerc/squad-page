@@ -1,3 +1,7 @@
-<app-calendar-day [Game]="game"></app-calendar-day>
+<mat-grid-list cols="7" rowHeight="160px">
+    <mat-grid-tile *ngFor="let game of games">
+        <app-calendar-day [Game]="game"></app-calendar-day>
+    </mat-grid-tile>
+</mat-grid-list>
 
 

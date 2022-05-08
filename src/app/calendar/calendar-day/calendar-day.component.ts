@@ -21,7 +21,7 @@ export class CalendarDayComponent implements OnInit {
 
   get Day(): string {
     return this.Game.GameDate.toLocaleString(
-      'default', {weekday: 'long'}
+      'default', {weekday: 'short'}
       );
   }
 
@@ -59,7 +59,7 @@ export class GameDay {
   GameType = GameTypeEnum.None;
   GameStatus = GameStatusEnum.NA;
   GameDate = new Date();
-  GameCourt = 1;
+  GameCourt = '1';
 
   get Played(): boolean {
     return this.GameDate < new Date()

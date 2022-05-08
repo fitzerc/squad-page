@@ -9,11 +9,11 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list'
 
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { CalendarWeekComponent } from './calendar/calendar-week/calendar-week.component';
-import { CalendarMonthComponent } from './calendar/calendar-month/calendar-month.component';
 import { CalendarDayComponent } from './calendar/calendar-day/calendar-day.component'
 
 @NgModule({
@@ -22,7 +22,6 @@ import { CalendarDayComponent } from './calendar/calendar-day/calendar-day.compo
     NavBarComponent,
     CalendarComponent,
     CalendarWeekComponent,
-    CalendarMonthComponent,
     CalendarDayComponent
   ],
   imports: [
@@ -32,7 +31,8 @@ import { CalendarDayComponent } from './calendar/calendar-day/calendar-day.compo
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
