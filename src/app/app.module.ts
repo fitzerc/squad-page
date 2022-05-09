@@ -12,16 +12,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list'
 
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { CalendarComponent } from './calendar/calendar.component';
-import { CalendarWeekComponent } from './calendar/calendar-week/calendar-week.component';
-import { CalendarDayComponent } from './calendar/calendar-day/calendar-day.component'
+import { DayCarouselComponent } from './day-carousel/day-carousel.component';
+import { CalendarDayComponent } from './calendar-day/calendar-day.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
-    CalendarComponent,
-    CalendarWeekComponent,
+    DayCarouselComponent,
     CalendarDayComponent
   ],
   imports: [

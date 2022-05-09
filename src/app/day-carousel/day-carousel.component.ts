@@ -2,11 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { GameDay, GameStatusEnum, GameTypeEnum } from '../calendar-day/calendar-day.component';
 
 @Component({
-  selector: 'app-calendar-week',
-  templateUrl: './calendar-week.component.html',
-  styleUrls: ['./calendar-week.component.scss']
+  selector: 'squad-day-carousel',
+  templateUrl: './day-carousel.component.html',
+  styleUrls: ['./day-carousel.component.scss']
 })
-export class CalendarWeekComponent implements OnInit {
+export class DayCarouselComponent implements OnInit {
   @Input() games: GameDay[] = [];
 
   constructor() {
@@ -14,7 +14,7 @@ export class CalendarWeekComponent implements OnInit {
     let tmpList = [];
 
     while (i < 8) {
-      tmpList.push(this.getGame(i.toString(), new Date(i), GameTypeEnum.Regular, GameStatusEnum.Upcoming))
+      tmpList.push(this.getGame(i.toString(), new Date(new Date().getDate() + i), GameTypeEnum.Regular, GameStatusEnum.Upcoming))
       i++;
     }
 
