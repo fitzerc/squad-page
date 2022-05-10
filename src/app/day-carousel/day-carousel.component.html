@@ -7,11 +7,19 @@
 -->
 
 <div align="center">
+    <div class="scroll-container">
+        <div class="nln" *ngFor="let game of games">
+    <!--
 <table>
     <tr>
         <td *ngFor="let game of games">
+    -->
             <squad-game-day [Game]="game"></squad-game-day>
+        </div>
+    </div>
+    <!--
         </td>
     </tr>
 </table>
+    -->
 </div>

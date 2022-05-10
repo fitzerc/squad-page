@@ -7,7 +7,7 @@
         </td>
         <td>&nbsp;</td>
         <td>
-          <mat-icon style="float: right;" *ngIf="Game.GameType === byeGameTypeString" aria-hidden="false" aria-label="Win icon">beach_access</mat-icon>
+          <mat-icon style="float: right;" *ngIf="Game.GameType === byeGameTypeString" aria-label="bye icon">beach_access</mat-icon>
           <mat-icon style="float: right;" *ngIf="!gamePlayed && Game.GameType !== byeGameTypeString" aria-hidden="false" aria-label="Win icon">radio_button_unchecked</mat-icon>
           <mat-icon style="float: right" *ngIf="!gameWon && gamePlayed && Game.GameType !== byeGameTypeString" style="color: red" aria-hidden="false" aria-label="Win icon">cancel</mat-icon>
           <mat-icon style="float: right;" *ngIf="gameWon && gamePlayed && Game.GameType !== byeGameTypeString" style="color: rgb(98, 235, 35);" aria-hidden="false" aria-label="Win icon">stars</mat-icon>
@@ -17,11 +17,11 @@
   </mat-card-title>
   <mat-card-subtitle>{{Game.GameType}}</mat-card-subtitle>
   <mat-card-content>
-    <div *ngIf="Game.GameType !== byeGameTypeString" class="content-div">
-      {{Game.FormattedTime}}
+    <div class="content-div">
+      {{Game.GameType === byeGameTypeString ? 'Time N/A' : Game.FormattedTime}}
     </div>
-    <div *ngIf="Game.GameType !== byeGameTypeString" class="content-div">
-      {{Game.GameCourt}}
+    <div class="content-div">
+      {{Game.GameType === byeGameTypeString ? 'Court N/A' : Game.GameCourt}}
     </div>
     <div class="content-div">
       {{Game.GameDate.toString() | date: 'shortDate'}}

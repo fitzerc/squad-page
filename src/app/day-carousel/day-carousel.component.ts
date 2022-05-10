@@ -38,16 +38,16 @@ export class DayCarouselComponent implements OnInit {
     tmpList.push(this.getGame('Court 3', dt, GameTypeEnum.Regular, GameStatusEnum.Upcoming));
 
     dt = new Date(2022, 6, 13, 19, 15);
-    tmpList.push(this.getGame('4', dt, GameTypeEnum.Regular, GameStatusEnum.Upcoming));
+    tmpList.push(this.getGame('Court 4', dt, GameTypeEnum.Regular, GameStatusEnum.Upcoming));
 
     dt = new Date(2022, 6, 20, 20, 5);
-    tmpList.push(this.getGame('2', dt, GameTypeEnum.Regular, GameStatusEnum.Upcoming));
+    tmpList.push(this.getGame('Court 2', dt, GameTypeEnum.Regular, GameStatusEnum.Upcoming));
 
     dt = new Date(2022, 6, 27, 20, 55);
-    tmpList.push(this.getGame('5', dt, GameTypeEnum.Regular, GameStatusEnum.Upcoming));
+    tmpList.push(this.getGame('Court 5', dt, GameTypeEnum.Regular, GameStatusEnum.Upcoming));
 
     dt = new Date(2022, 7, 3, 19, 15);
-    tmpList.push(this.getGame('5', dt, GameTypeEnum.Regular, GameStatusEnum.Upcoming));
+    tmpList.push(this.getGame('Court 5', dt, GameTypeEnum.Regular, GameStatusEnum.Upcoming));
 
     this.games = tmpList;
   }
