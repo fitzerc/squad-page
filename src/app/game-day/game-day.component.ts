@@ -1,22 +1,19 @@
+import { getLocaleDateFormat } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-calendar-day',
-  templateUrl: './calendar-day.component.html',
-  styleUrls: ['./calendar-day.component.scss']
+  selector: 'squad-game-day',
+  templateUrl: './game-day.component.html',
+  styleUrls: ['./game-day.component.scss']
 })
-export class CalendarDayComponent implements OnInit {
+export class GameDayComponent implements OnInit {
   @Input() Notes = "This is a test note";
   @Input() Game: GameDay = new GameDay();
 
+  byeGameTypeString = 'Bye';
+
   get TimeAndCourt(): string {
     return `${this.Game.FormattedTime} on Court ${this.Game.GameCourt}`
-  }
-
-  get HaveGame(): string {
-    return this.Game.GameType === GameTypeEnum.None
-      ? 'No Game'
-      : 'Game';
   }
 
   get Day(): string {
@@ -26,7 +23,7 @@ export class CalendarDayComponent implements OnInit {
   }
 
   get gamePlayed(): boolean {
-    return true;
+    return this.Game.GameDate < new Date();
   }
 
   get gameWon(): boolean {
@@ -41,10 +38,12 @@ export class CalendarDayComponent implements OnInit {
 }
 
 export enum GameTypeEnum {
-  None,
-  Regular,
-  Playoff,
-  Exibition
+  None = 'None',
+  Regular = 'Regular',
+  Playoff = 'Playoff',
+  Exibition = 'Exibition',
+  Event = 'Event',
+  Bye = 'Bye'
 }
 
 export enum GameStatusEnum {
@@ -80,7 +79,7 @@ export class GameDay {
   }
 
   private formatMinutes(minutes: number): string {
-    return minutes > 0
+    return minutes > 9
       ? minutes.toString()
       : '0' + minutes.toString();
   }

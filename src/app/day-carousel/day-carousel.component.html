@@ -1,7 +1,17 @@
-<mat-grid-list cols="7" rowHeight="160px">
+<!--
+<mat-grid-list cols="5" rowHeight="160px">
     <mat-grid-tile *ngFor="let game of games">
-        <app-calendar-day [Game]="game"></app-calendar-day>
+        <squad-calendar-day [Game]="game"></squad-calendar-day>
     </mat-grid-tile>
 </mat-grid-list>
+-->
 
-
+<div align="center">
+<table>
+    <tr>
+        <td *ngFor="let game of games">
+            <squad-game-day [Game]="game"></squad-game-day>
+        </td>
+    </tr>
+</table>
+</div>

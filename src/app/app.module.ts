@@ -13,14 +13,14 @@ import { MatGridListModule } from '@angular/material/grid-list'
 
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { DayCarouselComponent } from './day-carousel/day-carousel.component';
-import { CalendarDayComponent } from './calendar-day/calendar-day.component'
+import { GameDayComponent } from './game-day/game-day.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     DayCarouselComponent,
-    CalendarDayComponent
+    GameDayComponent
   ],
   imports: [
     BrowserModule,
