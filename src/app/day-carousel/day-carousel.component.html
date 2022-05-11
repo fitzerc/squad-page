@@ -1,25 +1,7 @@
-<!--
-<mat-grid-list cols="5" rowHeight="160px">
-    <mat-grid-tile *ngFor="let game of games">
-        <squad-calendar-day [Game]="game"></squad-calendar-day>
-    </mat-grid-tile>
-</mat-grid-list>
--->
-
 <div align="center">
     <div class="scroll-container">
-        <div class="nln" *ngFor="let game of games">
-    <!--
-<table>
-    <tr>
-        <td *ngFor="let game of games">
-    -->
+        <div class="inline-display" *ngFor="let game of games">
             <squad-game-day [Game]="game"></squad-game-day>
         </div>
     </div>
-    <!--
-        </td>
-    </tr>
-</table>
-    -->
 </div>

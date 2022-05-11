@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatButtonModule } from '@angular/material/button'
@@ -11,9 +8,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list'
 
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { DayCarouselComponent } from './day-carousel/day-carousel.component';
 import { GameDayComponent } from './game-day/game-day.component'
+import { MockGameDayService, BaseGameDayService } from './services/game-day.service';
+import { MockSquadService, BaseSquadService } from './services/squad.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,10 @@ import { GameDayComponent } from './game-day/game-day.component'
     MatCardModule,
     MatGridListModule
   ],
-  providers: [],
+  providers: [
+    {provide: BaseGameDayService, useClass: MockGameDayService },
+    { provide: BaseSquadService, useClass: MockSquadService }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

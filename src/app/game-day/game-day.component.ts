@@ -1,4 +1,3 @@
-import { getLocaleDateFormat } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -27,6 +26,8 @@ export class GameDayComponent implements OnInit {
   }
 
   get gameWon(): boolean {
+    //Update GameDay once game is played
+    //Either from database or hardcoded in carousel
     return true;
   }
 

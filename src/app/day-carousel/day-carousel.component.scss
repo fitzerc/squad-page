@@ -1,28 +1,10 @@
-/*
-@media(min-width: 900px) {
-    .div {
-        padding-left: 3px;
-        padding-right: 3px;
-        width: 100%;
-    }
-
-    .table {
-    width: 100%;
-    }
-}
-
-.table {
-    overflow-x: auto;
-}
-*/
-
 .scroll-container {
-    overflow-x: scroll;
+    overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
 }
 
-.nln {
+.inline-display {
     display: inline-block;
     margin-top: 2px;
     margin-bottom: 2px;

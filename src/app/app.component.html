@@ -1,5 +1,5 @@
-<squad-nav-bar></squad-nav-bar>
+<squad-nav-bar *ngIf="squadNameAsync" [SquadName]="squadNameAsync | async"></squad-nav-bar>
 
 <div style="margin-top: 1rem;">
-    <squad-day-carousel></squad-day-carousel>
+    <squad-day-carousel *ngIf="gameDaysAsync"  [games]="gameDaysAsync | async"></squad-day-carousel>
 </div>
