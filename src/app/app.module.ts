@@ -15,6 +15,7 @@ import { DayCarouselComponent } from './day-carousel/day-carousel.component';
 import { GameDayComponent } from './game-day/game-day.component'
 import { MockGameDayService, BaseGameDayService } from './services/game-day.service';
 import { MockSquadService, BaseSquadService } from './services/squad.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,11 +32,13 @@ import { MockSquadService, BaseSquadService } from './services/squad.service';
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    HttpClientModule,
   ],
   providers: [
+    HttpClient,
     {provide: BaseGameDayService, useClass: MockGameDayService },
-    { provide: BaseSquadService, useClass: MockSquadService }
+    { provide: BaseSquadService, useClass: MockSquadService },
   ],
   bootstrap: [AppComponent]
 })

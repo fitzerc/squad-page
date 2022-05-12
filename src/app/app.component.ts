@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GameDay } from './game-day/game-day.component';
+import { SquadInfo } from './models/squad-info.model';
 import { BaseGameDayService } from './services/game-day.service';
 import { BaseSquadService } from './services/squad.service';
 
@@ -12,7 +13,7 @@ import { BaseSquadService } from './services/squad.service';
 export class AppComponent implements OnInit {
 
   gameDaysAsync!: Observable<GameDay[]>;
-  squadNameAsync!: Observable<string>;
+  squadNameAsync!: Observable<SquadInfo>;
 
   constructor(private readonly squadService: BaseSquadService, private readonly gameDayService: BaseGameDayService){}
 
