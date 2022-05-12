@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { DayCarouselComponent } from './day-carousel/day-carousel.component';
 import { GameDayComponent } from './game-day/game-day.component'
+import { GameDayDetailsComponent } from './game-day-details/game-day-details.component';
 import { MockGameDayService, BaseGameDayService } from './services/game-day.service';
 import { MockSquadService, BaseSquadService } from './services/squad.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -22,7 +23,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     AppComponent,
     NavBarComponent,
     DayCarouselComponent,
-    GameDayComponent
+    GameDayComponent,
+    GameDayDetailsComponent
   ],
   imports: [
     BrowserModule,
