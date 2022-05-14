@@ -7,14 +7,20 @@ import { GameDay, GameStatusEnum, GameTypeEnum } from '../game-day/game-day.comp
   styleUrls: ['./game-day-details.component.scss']
 })
 export class GameDayDetailsComponent implements OnInit {
-  @Input() game: GameDay;
+  @Input() Game: GameDay;
+
+  get byeGameTypeString (): string {
+    return GameDay.byeGameTypeString;
+  }
+
+  Opponent: string='Greatest Showman';
 
   constructor() {
-    this.game=new GameDay ();
-    this.game.GameCourt='Court 5';
-    this.game.GameDate=new Date ();
-    this.game.GameStatus=GameStatusEnum.Lost;
-    this.game.GameType=GameTypeEnum.Exibition;
+    this.Game=new GameDay ();
+    this.Game.GameCourt='Court 5';
+    this.Game.GameDate=new Date ();
+    this.Game.GameStatus=GameStatusEnum.Lost;
+    this.Game.GameType=GameTypeEnum.Exibition;
   }
 
   ngOnInit(): void {

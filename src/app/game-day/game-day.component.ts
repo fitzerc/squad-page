@@ -9,7 +9,9 @@ export class GameDayComponent implements OnInit {
   @Input() Notes = "This is a test note";
   @Input() Game: GameDay = new GameDay();
 
-  byeGameTypeString = 'Bye';
+  get byeGameTypeString (): string {
+    return GameDay.byeGameTypeString;
+  }
 
   get TimeAndCourt(): string {
     return `${this.Game.FormattedTime} on Court ${this.Game.GameCourt}`
@@ -60,6 +62,8 @@ export class GameDay {
   GameStatus = GameStatusEnum.NA;
   GameDate = new Date();
   GameCourt = '1';
+
+  static byeGameTypeString = 'Bye';
 
   get Played(): boolean {
     return this.GameDate < new Date()
