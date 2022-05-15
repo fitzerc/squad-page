@@ -6,7 +6,8 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
-import { MatGridListModule } from '@angular/material/grid-list'
+import { MatGridListModule } from '@angular/material/grid-list';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,7 @@ import { GameDayDetailsComponent } from './game-day-details/game-day-details.com
 import { MockGameDayService, BaseGameDayService } from './services/game-day.service';
 import { MockSquadService, BaseSquadService } from './services/squad.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { GameDayCheckInComponent } from './game-day-check-in/game-day-check-in.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     NavBarComponent,
     DayCarouselComponent,
     GameDayComponent,
-    GameDayDetailsComponent
+    GameDayDetailsComponent,
+    GameDayCheckInComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +39,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     MatCardModule,
     MatGridListModule,
     HttpClientModule,
+    MatSidenavModule,
   ],
   providers: [
     HttpClient,

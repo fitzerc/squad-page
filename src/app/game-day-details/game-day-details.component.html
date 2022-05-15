@@ -1,12 +1,13 @@
 
 <mat-card>
+
     <mat-card-title>
-        <div align="center" style="width: 100%;">
+        <div align="center" style="width: 100%; font-weight: bold;">
             <div class="title"> Event Details </div>
         </div>
     </mat-card-title>
 
-    <mat-card-content>
+    <mat-card-content align="center">
         <div class="content-div">
           {{Game.GameType === byeGameTypeString? 'Time N/A' : Game.FormattedTime}}
         </div>
@@ -16,10 +17,14 @@
         <div class="content-div">
           {{Game.GameDate.toString() | date: 'shortDate'}}
         </div>
+      </mat-card-content>
+
+      <mat-card-content align="center" style="font-size: medium; font-weight: bold;" >
         <div class="content-div">
             Opponent: {{Opponent}}
         </div>
       </mat-card-content>
 
 </mat-card>
+
 
