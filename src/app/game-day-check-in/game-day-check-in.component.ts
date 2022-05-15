@@ -8,11 +8,6 @@ import { GameDay, GameStatusEnum, GameTypeEnum } from '../game-day/game-day.comp
 })
 export class GameDayCheckInComponent implements OnInit {
   @Input() Notes: "Testing your eyes";
-  @Input() Game: GameDay;
-
-  get byeGameTypeString (): string {
-    return GameDay.byeGameTypeString;
-  }
 
   constructor() {
 
