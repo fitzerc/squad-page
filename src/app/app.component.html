@@ -5,18 +5,19 @@
 </div>
 
 <div>
-    <squad-game-day-details></squad-game-day-details>
+    <squad-game-day-details (CheckInClick)="drawer.toggle()"></squad-game-day-details>
 </div>
 
 <mat-drawer-container class="container" autosize>
     <mat-drawer #drawer class="sidenav" mode="side">
         <squad-game-day-check-in></squad-game-day-check-in>
     </mat-drawer>
-  
+  <!--
     <div class="sidenav-content">
       <button type="button" mat-button (click)="drawer.toggle()">
         Click to Check In
       </button>
     </div>
+  -->
   
   </mat-drawer-container>

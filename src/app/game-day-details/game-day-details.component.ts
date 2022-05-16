@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { GameDay, GameStatusEnum, GameTypeEnum } from '../game-day/game-day.component';
 
 @Component({
@@ -8,6 +8,7 @@ import { GameDay, GameStatusEnum, GameTypeEnum } from '../game-day/game-day.comp
 })
 export class GameDayDetailsComponent implements OnInit {
   @Input() Game: GameDay;
+  @Output() CheckInClick=new EventEmitter<GameDay> ();
 
   get byeGameTypeString (): string {
     return GameDay.byeGameTypeString;
@@ -24,6 +25,10 @@ export class GameDayDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  CheckInClicked (): void{
+    this.CheckInClick.emit(this.Game);
   }
 
 }
