@@ -4,7 +4,7 @@ import { Observable, of } from "rxjs";
 import { SquadInfo } from "../models/squad-info.model";
 
 export abstract class BaseSquadService {
-    abstract getSquadName(): Observable<SquadInfo>;
+    abstract getSquadName(squadNumber: number): Observable<SquadInfo>;
 }
 
 @Injectable()
@@ -13,10 +13,9 @@ export class MockSquadService extends BaseSquadService {
         super();
     }
 
-    override getSquadName(): Observable<SquadInfo> {
-        const url = 'https://localhost:7214/api/Squad';
+    override getSquadName(squadNumber: number): Observable<SquadInfo> {
+        const url = 'https://localhost:7214/api/Squad/bySquadNumber/' + squadNumber;
 
         return this._http.get<SquadInfo>(url);
-        //return of('Setsaholics Anonymous');
     }
 }

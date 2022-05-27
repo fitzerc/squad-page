@@ -1,7 +1,7 @@
 <div align="center">
     <div class="scroll-container">
         <div class="inline-display" *ngFor="let game of games">
-            <squad-game-day [Game]="game"></squad-game-day>
+            <squad-game-day (Click)="CardClicked($event)" [Game]="game"></squad-game-day>
         </div>
     </div>
 </div>
