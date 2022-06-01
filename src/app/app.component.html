@@ -8,7 +8,7 @@
     <!--
     <squad-game-day-details (CheckInClick)="drawer.toggle()"></squad-game-day-details>
     -->
-    <squad-game-day-details (CheckInClick)="checkinClicked()"></squad-game-day-details>
+    <squad-game-day-details [OpponentSquad]="clickedGameOpponentSquad" [Game]="clickedGameDay" (CheckInClick)="checkinClicked()"></squad-game-day-details>
 </div>
 
 <!--

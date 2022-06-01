@@ -1,14 +1,24 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
 import { GameDay, GameStatusEnum, GameTypeEnum } from "../game-day/game-day.component";
+import { GameDayDetails, GameDayInfo } from "../models/gameday-info.model";
 
 export abstract class BaseGameDayService {
-    abstract getGameDays(): Observable<GameDay[]>;
+    abstract getGameDays(squadId: string): Observable<GameDayDetails[]>;
 }
 
 @Injectable()
 export class MockGameDayService extends BaseGameDayService {
-    override getGameDays(): Observable<GameDay[]> {
+
+    constructor (private _http: HttpClient){
+        super();
+    }
+
+    override getGameDays(squadId: string): Observable<GameDayDetails[]> {
+        const url = 'https://localhost:7214/api/GameDayDetails/all/' + squadId;
+        return this._http.get<GameDayDetails[]>(url);
+      /*
         let tmpList: GameDay[] = [];
         let dt = new Date(2022, 4, 18, 20, 5);
         tmpList.push(this.getGame('Court 5', dt, GameTypeEnum.Regular, GameStatusEnum.Upcoming));
@@ -47,6 +57,7 @@ export class MockGameDayService extends BaseGameDayService {
         tmpList.push(this.getGame('Court 5', dt, GameTypeEnum.Regular, GameStatusEnum.Upcoming));
 
         return of(tmpList);
+        */
     }
 
   private getGame(court: string, date: Date, type: GameTypeEnum, gameStatus: GameStatusEnum): GameDay {

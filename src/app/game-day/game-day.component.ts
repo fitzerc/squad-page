@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { GameDayDetails, GameDayInfo } from '../models/gameday-info.model';
+import { SquadInfo } from '../models/squad-info.model';
 
 @Component({
   selector: 'squad-game-day',
@@ -7,31 +9,42 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class GameDayComponent implements OnInit {
   @Input() Notes = "This is a test note";
-  @Input() Game: GameDay = new GameDay();
-  @Output() Click = new EventEmitter<GameDay>();
+  @Input() Game: GameDayDetails = new GameDayDetails();
+  @Output() Click = new EventEmitter<GameDayDetails>();
 
   get byeGameTypeString (): string {
     return GameDay.byeGameTypeString;
   }
 
-  get TimeAndCourt(): string {
-    return `${this.Game.FormattedTime} on Court ${this.Game.GameCourt}`
+  get GameTime(): string {
+    return `${this.gameDateAsDate.toLocaleTimeString(
+      'default', { timeStyle: 'short', timeZone: "America/Chicago" }
+    )}`
   }
 
   get Day(): string {
-    return this.Game.GameDate.toLocaleString(
+    return this.gameDateAsDate.toLocaleString(
       'default', {weekday: 'short'}
       );
   }
 
+  get shortDate(): string {
+    return this.gameDateAsDate.toLocaleDateString(
+      'default', {dateStyle: 'short'}
+    );
+  }
+
   get gamePlayed(): boolean {
-    return this.Game.GameDate < new Date();
+    return this.gameDateAsDate < new Date();
   }
 
   get gameWon(): boolean {
-    //Update GameDay once game is played
-    //Either from database or hardcoded in carousel
-    return true;
+    return this.Game.result.result == this.Game.result.winString;
+  }
+
+  get gameDateAsDate(): Date {
+    let dateAsString = this.Game.gameDate.toString();
+    return new Date(dateAsString.substring(0, dateAsString.length - 1));
   }
 
   constructor() { }

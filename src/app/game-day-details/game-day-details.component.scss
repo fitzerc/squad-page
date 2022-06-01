@@ -1,31 +1,31 @@
-.title {
-    width: fit-content;
-    padding-left: 5px;
-    padding-right: 5px;
-    text-align: center;
-    font-size:large;
-}
-
 .mat-card {
     width: 315px;
     height: 175px;
     padding: 7px;
     margin-top: 7px;
-    background-color: #ffd740;
+    //background-color: #ffd740;
+    background: rgb(255,215,64);
+    background: linear-gradient(180deg, rgba(255,215,64,1) 2%, rgba(255,255,255,1) 10%);
 }
 
 .mat-card-title {
-    margin-bottom: 4px;
     text-align: center;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+.detail-content {
+    font-size: 10pt;
+    margin-bottom: -5px;
+    padding-bottom: -5px;
+}
+
+.detail-label {
+    font-size: 8pt;
 }
 
 .mat-card-content {
-    font-size: 10pt;
-}
-
-.opp-card{
-    font-size: medium; 
-    font-weight: bold;
+    margin-top: -15px;
 }
 
 .content-div {

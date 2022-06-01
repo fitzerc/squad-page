@@ -2,34 +2,65 @@
 <mat-card>
 
     <mat-card-title>
-        <div align="center" style="width: 100%; font-weight: bold;">
-            <div class="title"> Event Details </div>
-        </div>
+      <mat-icon
+        style="float: center;" aria-hidden="false"
+        color="primary"
+        aria-label="Win icon">sports_volleyball</mat-icon>
     </mat-card-title>
 
-    <mat-card-content align="center">
+    <div *ngIf="!Game">
+      Select a game for details
+    </div>
+    <div *ngIf="Game">
+
+    <mat-card-subtitle align="center">
+        <div style="width: 100%; font-weight: bold;">
+            <div>{{resultString}}</div>
+        </div>
+    </mat-card-subtitle>
+
+    <mat-card-content align="center" class="primary-purp">
         <div class="content-div">
-          {{Game.GameType === byeGameTypeString? 'Time N/A' : Game.FormattedTime}}
+          <div class="detail-content">
+            {{Opponent}}
+          </div>
+          <div class="detail-label accent-yellow">
+            Against
+          </div>
         </div>
         <div class="content-div">
-          {{Game.GameType === byeGameTypeString ? 'Court N/A' : Game.GameCourt}}
+          <div class="detail-content">
+            {{Game.gameType === byeGameTypeString? 'N/A' : GameTime}}
+          </div>
+          <div class="content-label accent-yellow">
+            Time
+          </div>
         </div>
         <div class="content-div">
-          {{Game.GameDate.toString() | date: 'shortDate'}}
+          <div class="detail-content">
+          {{Game.gameType === byeGameTypeString ? 'N/A' : Game.gameLocation}}
+          </div>
+          <div class="detail-label accent-yellow">
+            Location
+          </div>
+        </div>
+        <div class="content-div">
+          <div class="detail-content">
+            {{Game.gameDate.toString() | date: 'shortDate'}}
+          </div>
+          <div class="detail-label accent-yellow">
+            Date
+          </div>
         </div>
       </mat-card-content>
 
-      <mat-card-content align="center" class="opp-card">
-        <div class="content-div">
-            Opponent: {{Opponent}}
-        </div>
-      </mat-card-content>
-
+      <!--
       <mat-card-content>
         <button (click)="CheckInClicked()" mat-stroked-button color="primary">Accent</button>
       </mat-card-content>
-
-</mat-card>
+      -->
+    </div>
+  </mat-card>
 </div>
 
 
